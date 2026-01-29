@@ -8,6 +8,7 @@ import CnDPage from './pages/CnDPage'
 import BrainMeshViewer from './components/BrainMeshViewer'
 import Contact from './pages/Contact'
 import SummerSchool from './pages/SummerSchool'
+import SpringSchool from './pages/SpringSchool'
 import Meeting from './pages/Meeting'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/app" element={<BrainMeshViewer />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/summer-school" element={<SummerSchool />} />
+          <Route path="/spring-school" element={<SpringSchool />} />
           <Route path="/meeting" element={<Meeting />} />
         </Routes>
         <Footer />

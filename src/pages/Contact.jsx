@@ -175,13 +175,6 @@ function Contact() {
                 />
                 <p>buforstmann@gmail.com</p>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone
-                  className="text-blue-600 dark:text-blue-400 flex-shrink-0"
-                  size={22}
-                />
-                <p>+31 615324988</p>
-              </div>
             </div>
           </div>
 
