@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 
 /**
  * Parse a CSV line properly handling quoted fields with commas
- * @param {string} line - CSV line to parse
- * @returns {Array<string>} Array of parsed values
  */
 const parseCSVLine = (line) => {
   const result = []
@@ -15,17 +13,13 @@ const parseCSVLine = (line) => {
     const nextChar = line[i + 1]
 
     if (char === '"') {
-      // Handle escaped quotes ("")
       if (inQuotes && nextChar === '"') {
         current += '"'
-        i++ // Skip next quote
+        i++
       } else {
-        // Toggle quote state
         inQuotes = !inQuotes
       }
     } else if (char === ',' && !inQuotes) {
-      // End of field - only split on commas outside quotes
-      // Trim the value to remove any extra whitespace
       result.push(current.trim())
       current = ''
     } else {
@@ -33,14 +27,12 @@ const parseCSVLine = (line) => {
     }
   }
 
-  // Add last field and trim
   result.push(current.trim())
   return result
 }
 
 /**
  * Custom hook for loading and parsing publications from CSV
- * @returns {Object} { publications, loading, error, retry }
  */
 export const usePublications = () => {
   const [publications, setPublications] = useState([])
@@ -51,31 +43,18 @@ export const usePublications = () => {
     const lines = text.split('\n').filter((line) => line.trim())
     if (lines.length === 0) return []
 
-    // Parse header line
     const headers = parseCSVLine(lines[0]).map((h) => h.toLowerCase().trim())
-
-    console.log('CSV Headers found:', headers)
 
     const data = []
 
     for (let i = 1; i < lines.length; i++) {
       const values = parseCSVLine(lines[i])
-
       if (values.length === 0) continue
 
       const row = {}
       headers.forEach((header, index) => {
         row[header] = values[index] || ''
       })
-
-      // Debug first few rows
-      if (i <= 3) {
-        console.log(`Row ${i}:`, {
-          title: row['title']?.substring(0, 50),
-          authors: row['authors']?.substring(0, 50),
-          year: row['year'],
-        })
-      }
 
       data.push(row)
     }
@@ -89,12 +68,10 @@ export const usePublications = () => {
       setError(null)
 
       const response = await fetch(
-        '/publications.csv?t=' + new Date().getTime()
+        '/publications.csv?t=' + new Date().getTime(),
       )
       if (!response.ok) {
-        throw new Error(
-          'Publications file not found. Please ensure publications.csv exists in the public folder.'
-        )
+        throw new Error('Publications file not found.')
       }
 
       const csvData = await response.text()
@@ -102,54 +79,24 @@ export const usePublications = () => {
 
       const processedData = parsedData
         .map((row, index) => {
-          // Trim and clean all fields
-          const pmid = (
-            row['pmid'] ||
-            row['pubmed_id'] ||
-            row['pubmed id'] ||
-            row['pubmedid'] ||
-            ''
-          ).trim()
+          // Extract and clean all fields
+          const pmid = (row['pmid'] || row['pubmed_id'] || '').trim()
           const doi = (row['doi'] || '').trim()
-          const title = (
-            row['title'] ||
-            row['publication title'] ||
-            row['name'] ||
-            ''
-          ).trim()
-          const authors = (
-            row['authors'] ||
-            row['author'] ||
-            row['author list'] ||
-            ''
-          ).trim()
-          const year = (
-            row['year'] ||
-            row['date'] ||
-            row['publication date'] ||
-            row['publication_year'] ||
-            ''
-          ).trim()
-          const journal = (
-            row['journal'] ||
-            row['journal name'] ||
-            row['source'] ||
-            ''
-          ).trim()
-          const url = (row['url'] || row['link'] || row['doi url'] || '').trim()
-          const abstract = (row['abstract'] || row['summary'] || '').trim()
+          const title = (row['title'] || row['publication title'] || '').trim()
+          const authors = (row['authors'] || row['author'] || '').trim()
+          const year = (row['year'] || row['date'] || '').trim()
+          const journal = (row['journal'] || row['journal name'] || '').trim()
+          const url = (row['url'] || row['link'] || '').trim()
+          const abstract = (row['abstract'] || '').trim()
 
-          // CRITICAL FIX: Always include index to guarantee unique IDs
-          // The CSV has duplicate PMIDs and DOIs, so we must use index
+          // Generate unique ID
           let id
           if (pmid) {
             id = `${pmid}-${index}`
           } else if (doi) {
-            // Shorten DOI-based ID and add index
             const shortDoi = doi.substring(0, 30).replace(/[^\w]/g, '-')
             id = `doi-${shortDoi}-${index}`
           } else {
-            // Use title-based ID with index
             const shortTitle = title.substring(0, 20).replace(/[^\w]/g, '-')
             id = `pub-${index}-${shortTitle}`
           }
@@ -167,34 +114,23 @@ export const usePublications = () => {
           }
         })
         .filter((pub) => {
-          // Only filter out completely invalid entries
-
-          // Must have a title
+          // Skip entries without titles
           if (!pub.title || pub.title.toLowerCase() === 'nan') {
-            console.warn('Skipping publication with no title')
             return false
           }
 
-          // Basic sanity check: if title has excessive commas (>5), might be misparsed
-          // But don't filter - just warn
-          const commaCount = (pub.title.match(/,/g) || []).length
-          if (commaCount > 5) {
-            console.warn(
-              '⚠️ Title may be misparsed (many commas):',
-              pub.title.substring(0, 50)
-            )
-            // Still include it - don't return false
+          // Skip entries without valid years (THIS IS THE FIX)
+          const yearNum = parseInt(pub.date)
+          if (!pub.date || isNaN(yearNum)) {
+            return false // Use false, not null
           }
 
-          // Warn about invalid year but still include
-          if (pub.date && !/^\d{4}$/.test(pub.date)) {
-            console.warn(
-              '⚠️ Invalid year format:',
-              pub.date,
-              'for:',
-              pub.title.substring(0, 40)
-            )
-            // Still include it - don't return false
+          // Optional: Skip entries with obviously malformed titles
+          // (like "README.md", "RESEARCH OUTPUT", etc.)
+          const commaCount = (pub.title.match(/,/g) || []).length
+          if (commaCount > 10) {
+            // Increase threshold to avoid false positives
+            return false
           }
 
           return true

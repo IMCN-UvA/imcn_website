@@ -23,12 +23,12 @@ function BrainContainer({ children, onHover, onHoverEnd }) {
     const childCount = React.Children.count(children)
 
     if (childCount !== lastChildCountRef.current) {
-      console.log(
-        'Child count changed from',
-        lastChildCountRef.current,
-        'to',
-        childCount
-      )
+      // console.log(
+      //   'Child count changed from',
+      //   lastChildCountRef.current,
+      //   'to',
+      //   childCount
+      // )
       meshRefs.current = []
       setMeshCount(0)
       isCenteredRef.current = false
