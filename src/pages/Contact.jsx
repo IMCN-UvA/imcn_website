@@ -9,7 +9,6 @@ import {
   ChevronDown,
   ChevronUp,
 } from 'lucide-react'
-import emailjs from 'emailjs-com'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -19,27 +18,52 @@ function Contact() {
   })
 
   const [showResearch, setShowResearch] = useState(true)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' or 'error'
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus(null)
 
-    emailjs
-      .send(
-        'service_9yusmir',
-        'template_ibqblft',
-        formData,
-        'Gq6x10nYLt4AwLmdG'
-      )
-      .then(
-        () => alert('Message sent successfully!'),
-        () => alert('Failed to send message. Please try again.')
-      )
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '5efe001f-805e-4e0b-ae06-964b7592ffd8', 
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New Contact Form Message from ${formData.name}`,
+          from_name: 'IMBNC Website Contact Form',
+          replyto: formData.email,
+        }),
+      })
 
-    setFormData({ name: '', email: '', message: '' })
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', message: '' })
+
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => setSubmitStatus(null), 5000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -213,10 +237,24 @@ function Contact() {
               ></textarea>
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white p-3 rounded-lg font-semibold transition-colors shadow-md hover:shadow-lg"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+
+              {/* Success/Error Messages */}
+              {submitStatus === 'success' && (
+                <div className="mt-4 p-4 bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-600 text-green-800 dark:text-green-200 rounded-lg">
+                  ✅ Message sent successfully! We'll get back to you soon.
+                </div>
+              )}
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-4 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-600 text-red-800 dark:text-red-200 rounded-lg">
+                  ❌ Failed to send message. Please try again or email us
+                  directly.
+                </div>
+              )}
             </form>
           </div>
         </div>
