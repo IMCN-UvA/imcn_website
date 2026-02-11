@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -13,7 +13,7 @@ import Meeting from './pages/Meeting'
 
 function App() {
   return (
-    <BrowserRouter basename="/imcn_website">
+    <HashRouter basename="/imcn_website">
       <div className="min-h-screen w-screen bg-white">
         <Header />
         <Routes>
@@ -29,7 +29,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
