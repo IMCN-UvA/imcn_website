@@ -35,13 +35,13 @@ const VennDiagram = ({ isExpanded, onCircleClick }) => {
       cx: isExpansionActive ? 450 : 345,
       cy: isExpansionActive ? 120 : 220,
       r: 60,
-      image: 'images/B.jpg',
+      image: '/images/B.jpg',
     },
     C: {
       cx: isExpansionActive ? 300 : 300,
       cy: isExpansionActive ? 400 : 300,
       r: 60,
-      image: 'images/C.jpg',
+      image: '/images/C.jpg',
     },
   }
 
