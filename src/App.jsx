@@ -13,7 +13,7 @@ import Meeting from './pages/Meeting'
 
 function App() {
   return (
-    <HashRouter basename="/imcn_website">
+    <HashRouter>
       <div className="min-h-screen w-screen bg-white">
         <Header />
         <Routes>
