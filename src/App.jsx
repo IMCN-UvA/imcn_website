@@ -13,7 +13,7 @@ import Meeting from './pages/Meeting'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/imcn_website">
       <div className="min-h-screen w-screen bg-white">
         <Header />
         <Routes>
