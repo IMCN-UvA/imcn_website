@@ -49,7 +49,7 @@ function SpringSchool() {
               </h2>
 
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                We're excited to bring you the inaugural Spring School in 2026!
+                We're excited to bring you the inaugural Spring School in 2027!
                 Program details, registration information, and schedule will be
                 available soon.
               </p>

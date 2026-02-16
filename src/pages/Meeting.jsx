@@ -86,7 +86,7 @@ function Meeting() {
               </p>
               <div className="pt-4 border-t border-gray-200 dark:border-gray-700 mt-auto">
                 <p className="text-sm text-gray-500 dark:text-gray-400 font-medium mb-2">
-                  1st Annual Program - Spring 2026
+                  1st Annual Program - Spring 2027
                 </p>
                 <p className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
                   Learn more →
