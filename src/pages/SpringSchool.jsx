@@ -77,7 +77,7 @@ function SpringSchool() {
                       />
                     </svg>
                     <p className="text-gray-700 dark:text-gray-300">
-                      <strong>When:</strong> Spring 2026 (exact dates TBA)
+                      <strong>When:</strong> Spring 2027 (exact dates TBA)
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
