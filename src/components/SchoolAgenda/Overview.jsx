@@ -21,7 +21,7 @@ function Overview() {
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                   The 12th Model-Based Neuroscience and Cognition Summer School,
                   hosted by the University of Amsterdam, will be held in Summer
-                  2027!
+                  2026!
                 </p>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
                   The University of Amsterdam will host the 11th annual
@@ -46,7 +46,7 @@ function Overview() {
                       Dates:
                     </span>
                     <p className="text-gray-600 dark:text-gray-300">
-                      TBA, 2027
+                      TBA, 2026
                     </p>
                   </div>
                   <div>

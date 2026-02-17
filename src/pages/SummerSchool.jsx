@@ -36,7 +36,7 @@ function SummerSchool() {
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-900 dark:text-gray-300 font-bold leading-relaxed max-w-3xl mx-auto">
-              Summer School 2027
+              Summer School 2026
             </p>
           </div>
 
