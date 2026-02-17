@@ -124,12 +124,12 @@ function SpringSchool() {
               <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700">
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
                   Check back soon for updates or visit our{' '}
-                  <a
-                    href="/summer-school"
+                  <Link
+                    to="/summer-school"
                     className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                   >
                     Summer School page
-                  </a>{' '}
+                  </Link>{' '}
                   to learn more about our programs.
                 </p>
               </div>

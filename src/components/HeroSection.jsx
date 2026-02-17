@@ -43,7 +43,7 @@ const HeroSection = () => {
         <div className="flex items-center justify-center space-x-2">
           <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
           <p className="text-sm font-medium">
-            Registration is now open for Summer School 2027!
+            Registration is now open for Summer School 2026!
           </p>
           <Link
             to= "summer-school#Application"
