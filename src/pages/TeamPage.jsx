@@ -127,7 +127,7 @@ const TeamPage = () => {
       id: 2,
       name: 'Anneke Alkemade',
       introduction:
-        'I am an associate professor and have a background in human neuroanatomy, specialising in the subcortex. My work is focused on providing neuroanatomical information that will help improve our understanding of the role of deep brain structures in behaviour. To this end, I study both living and post mortem brains using ultra-high field qMRI and various microscopy techniques.',
+        'I am an Associate Professor and have a background in human neuroanatomy, specialising in the subcortex. My work is focused on providing neuroanatomical information that will help improve our understanding of the role of deep brain structures in behaviour. To this end, I study both living and post mortem brains using ultra-high field qMRI and various microscopy techniques.',
       avatar: 'AA',
       photo: asset('/images/team/anneke-alkemade.jpg'),
     },
@@ -135,7 +135,7 @@ const TeamPage = () => {
       id: 3,
       name: 'Steven Miletić',
       introduction:
-        'I am an assistant professor at Leiden University and senior scientist at the University of Amsterdam. My research focuses on the temporal dynamics of the mind and brain: How and why do we change while we engage in decision-making tasks. These dynamics occur on multiple timescales, and give crucial insight in the structure of the mind as well as its neural underpinnings, with a focus on the deep brain',
+        'I am an Assistant Professor at Leiden University and senior scientist at the University of Amsterdam. My research focuses on the temporal dynamics of the mind and brain: How and why do we change while we engage in decision-making tasks. These dynamics occur on multiple timescales, and give crucial insight in the structure of the mind as well as its neural underpinnings, with a focus on the deep brain',
       avatar: 'SM',
       photo: asset('/images/team/steven-miletic.png'),
     },
