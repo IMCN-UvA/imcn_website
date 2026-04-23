@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SpringSchool() {
   return (
@@ -129,7 +130,7 @@ function SpringSchool() {
                     className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                   >
                     Summer School page
-                  </Link>{' '}
+                  </Link>
                   to learn more about our programs.
                 </p>
               </div>
