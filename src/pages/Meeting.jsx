@@ -19,8 +19,7 @@ function Meeting() {
 
         {/* School Selection Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Summer School Card */}
-          <Link to="/summer-school" className="block h-full">
+          <a href="https://modelbasedneurosci.com/" target="_blank" rel="noopener noreferrer" className="block h-full">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105 border-t-4 border-purple-500 h-full flex flex-col cursor-pointer">
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
