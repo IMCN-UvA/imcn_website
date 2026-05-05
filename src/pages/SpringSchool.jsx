@@ -126,7 +126,7 @@ function SpringSchool() {
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
                   Check back soon for updates or visit our{' '}
                   <a
-                    to="https://modelbasedneurosci.com"
+                    href="https://modelbasedneurosci.com"
                     className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                   >
                     Summer School page 
