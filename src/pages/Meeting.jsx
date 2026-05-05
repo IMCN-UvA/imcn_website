@@ -54,7 +54,7 @@ function Meeting() {
                 </p>
               </div>
             </div>
-          </Link>
+          </a>
 
           {/* Spring School Card */}
           <Link to="/spring-school" className="block h-full">
