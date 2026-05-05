@@ -46,7 +46,7 @@ const HeroSection = () => {
             Registration is now open for Summer School 2026!
           </p>
           <a
-            to= "https://modelbasedneurosci.com"
+            href= "https://modelbasedneurosci.com/application/"
             className="text-blue-200 hover:text-white underline text-sm font-semibold transition-colors duration-200"
           >
             Register →
