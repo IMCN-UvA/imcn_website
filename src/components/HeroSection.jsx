@@ -45,12 +45,12 @@ const HeroSection = () => {
           <p className="text-sm font-medium">
             Registration is now open for Summer School 2026!
           </p>
-          <Link
-            to= "summer-school#Application"
+          <a
+            to= "https://modelbasedneurosci.com"
             className="text-blue-200 hover:text-white underline text-sm font-semibold transition-colors duration-200"
           >
             Register →
-          </Link>
+          </a>
         </div>
     </div>
     <section
