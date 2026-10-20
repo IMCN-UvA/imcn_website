@@ -36,7 +36,7 @@ function SpringSchool() {
               </span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-900 dark:text-gray-300 font-bold leading-relaxed max-w-3xl mx-auto">
-              Spring School 2026
+              Spring School 2027
             </p>
           </div>
 
