@@ -19,16 +19,16 @@ function Overview() {
             <div className="w-full lg:w-[512px]">
               <div className="flex flex-col items-center text-center space-y-6">
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                  The 12th Model-Based Neuroscience and Cognition Summer School,
-                  hosted by the University of Amsterdam, will be held in Summer
+                  The 1st Model-Based Neuroscience and Cognition Spring School,
+                  hosted by the University of Amsterdam, will be held in Spring
                   2026!
                 </p>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                  The University of Amsterdam will host the 11th annual
-                  Model-Based Neuroscience and Cognition Summer School. There is
+                  The University of Amsterdam will host the 1st
+                  Model-Based Neuroscience and Cognition Spring School. There is
                   no fixed application deadline; applications will remain open
                   until all spots are filled, provided the applicant's profile
-                  aligns with the theme of the Summer school.
+                  aligns with the theme of the Spring school.
                 </p>
               </div>
             </div>
@@ -85,7 +85,7 @@ function Overview() {
                 </h3>
                 <div className="max-w-4xl mx-auto">
                   <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                    The Summer School will provide participants with hands-on
+                    The Spring School will provide participants with hands-on
                     experience in both cognitive modeling using
                     evidence-accumulation models and cognitive neuroscience
                     methods. This year includes a three-day introduction to
@@ -198,7 +198,7 @@ function Overview() {
                   Who Should Attend?
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  The Summer School is aimed at PhD-students and early postdocs
+                  The Spring School is aimed at PhD-students and early postdocs
                   who wish to acquire the basics of Bayesian
                   evidence-accumulation modeling, and combine that knowledge
                   with experimental and theoretical neuroscience research or
