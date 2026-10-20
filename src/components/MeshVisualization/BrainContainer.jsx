@@ -5,7 +5,7 @@ import { useFrame } from '@react-three/fiber'
 function BrainContainer({ children, onHover, onHoverEnd }) {
   const rotationGroupRef = useRef() // Handles rotation only
   const positionGroupRef = useRef() // Handles centering only
-  const [meshCount, setMeshCount] = useState(0)
+  const [, setMeshCount] = useState(0)
   const isCenteredRef = useRef(false)
   const meshRefs = useRef([])
   const lastChildCountRef = useRef(0)
