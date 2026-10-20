@@ -172,7 +172,7 @@ export const sortPublications = (
     let aValue, bValue
 
     switch (sortBy) {
-      case 'date':
+      case 'date': {
         // Check if dates are valid (4-digit year)
         const aHasValidDate = a.date && /^\d{4}$/.test(a.date)
         const bHasValidDate = b.date && /^\d{4}$/.test(b.date)
@@ -192,6 +192,7 @@ export const sortPublications = (
         aValue = parseInt(a.date, 10) // Compare years as integers, not dates
         bValue = parseInt(b.date, 10)
         break
+      }
       case 'title':
         aValue = (a.title || '').toLowerCase()
         bValue = (b.title || '').toLowerCase()

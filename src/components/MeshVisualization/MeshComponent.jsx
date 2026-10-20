@@ -5,7 +5,6 @@ function MeshComponent({
   region,
   side,
   age,
-  predictionType,
   onMeshLoaded,
   colorMin,
   colorMax,
@@ -166,7 +165,7 @@ function MeshComponent({
     }
   }, [disposeGeometry])
 
-  const [isHovered, setIsHovered] = useState(false)
+  const [, setIsHovered] = useState(false)
 
   const handlePointerEnter = useCallback(
     (e) => {

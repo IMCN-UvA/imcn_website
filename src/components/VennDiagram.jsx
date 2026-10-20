@@ -3,7 +3,7 @@ import { asset } from '../utils/assets'
 
 const VennDiagram = ({ isExpanded, onCircleClick }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const [hoveredCircle, setHoveredCircle] = useState(null)
+  const [, setHoveredCircle] = useState(null)
   const [showImages, setShowImages] = useState(false)
 
   const transitionDurationMs = 500
