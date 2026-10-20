@@ -17,7 +17,7 @@ function Application() {
                   </span>
                 </h2>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                  The registration fee for the Summer School is €550.
+                  The registration fee for the Spring School is €550.
                   Participants should make their own housing arrangements. Space
                   is limited, so we ask participants to provide a statement of
                   interest.
@@ -49,7 +49,7 @@ function Application() {
                     <strong className="text-gray-900 dark:text-white">
                       Selection:
                     </strong>{' '}
-                    Based on relevance of Summer School to your research
+                    Based on relevance of Spring School to your research
                   </p>
                 </div>
               </div>
