@@ -153,7 +153,7 @@ const TeamPage = () => {
         'I am an Associate Professor and have a background in human neuroanatomy, specialising in the subcortex. My work is focused on providing neuroanatomical information that will help improve our understanding of the role of deep brain structures in behaviour. To this end, I study both living and post mortem brains using ultra-high field qMRI and various microscopy techniques.',
       avatar: 'AA',
       photo: asset('/images/team/anneke-alkemade.jpg'),
-      links: [{ label: 'Research Projects', url: '/projects' }],
+      // links: [{ label: 'Research Projects', url: '/projects' }],
     },
     {
       id: 3,
