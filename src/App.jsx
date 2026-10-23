@@ -2,6 +2,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import ScrollToTop from './components/ScrollToTop'
 import PublicationsPage from './pages/PublicationsPage'
 import Team from './pages/TeamPage'
 import CnDPage from './pages/CnDPage'
@@ -15,6 +16,7 @@ import ResearchProjects from './pages/ResearchProjects'
 function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <div className="min-h-screen w-screen bg-white">
         <Header />
         <Routes>

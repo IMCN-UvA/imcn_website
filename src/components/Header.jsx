@@ -6,12 +6,15 @@ import logo from '../assets/logo.png'
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
+  const lastScrollYRef = useRef(0)
   const location = useLocation()
   const scrollPositionRef = useRef(0)
 
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false)
+    setIsHidden(false)
   }, [location.pathname])
 
   // Apply/remove 'dark' class on <html>
@@ -34,7 +37,7 @@ const Header = () => {
       if (isMenuOpen) {
         const currentScroll = window.scrollY
         const scrollDifference = Math.abs(
-          currentScroll - scrollPositionRef.current
+          currentScroll - scrollPositionRef.current,
         )
 
         // Only close if scrolled more than 50 pixels
@@ -48,16 +51,33 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [isMenuOpen])
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY
+      const delta = currentY - lastScrollYRef.current
+      if (Math.abs(delta) < 5) return
+      setIsHidden(delta > 0 && currentY > 80)
+      lastScrollYRef.current = currentY
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="w-full bg-gray-900 dark:bg-gray-800 shadow-sm sticky top-0 z-50 transition-colors">
+    <header
+      className={`w-full bg-gray-900 dark:bg-gray-800 shadow-sm sticky top-0 z-50 transition-all duration-300 motion-reduce:transition-none ${
+        isHidden && !isMenuOpen ? '-translate-y-full' : 'translate-y-0'
+      }`}
+    >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center invert">
+          <Link to="/" className="flex items-center invert flex-shrink-0">
             <img
               src={logo}
               alt="IMCN Logo"
-              className="h-auto w-auto rounded-lg object-contain cursor-pointer"
+              className="h-12 xl:h-14 w-auto rounded-lg object-contain cursor-pointer"
             />
           </Link>
 
@@ -85,7 +105,7 @@ const Header = () => {
               aria-label="Toggle navigation menu"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav"
-              className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+              className="lg:hidden p-2 rounded-md text-white hover:bg-gray-700 transition-colors"
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -109,16 +129,16 @@ const navItems = [
   { to: '/', label: 'Home' },
   { to: '/team', label: 'Team' },
   { to: '/publications', label: 'Publications' },
+  { to: '/projects', label: 'Research Projects' },
   { to: '/code-and-data', label: 'Code & Data' },
   { to: '/app', label: 'App' },
   { to: '/contact', label: 'Contact' },
-  // { to: '/spring-school', label: 'Spring School' },
   { to: '/meeting', label: 'Meeting' },
 ]
 
 const Navigation = () => (
   <nav
-    className="hidden md:flex items-center space-x-3 ml-12"
+    className="hidden lg:flex items-center gap-1 ml-auto mr-3"
     role="navigation"
     aria-label="Primary"
   >
@@ -127,7 +147,7 @@ const Navigation = () => (
         key={item.to}
         to={item.to}
         className={({ isActive }) =>
-          `px-3 py-2 rounded-md font-medium transition-colors ${
+          `whitespace-nowrap px-3 py-2 rounded-md font-medium transition-colors ${
             isActive
               ? 'text-blue-600 bg-blue-50 dark:bg-gray-700 dark:text-blue-400'
               : 'text-white dark:text-gray-200 hover:text-gray-600 hover:bg-white dark:hover:text-gray-300 dark:hover:bg-gray-700'
@@ -143,7 +163,7 @@ const Navigation = () => (
 const MobileNavigation = ({ closeMenu }) => (
   <div
     id="mobile-nav"
-    className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700 w-full"
+    className="lg:hidden py-4 border-t border-gray-200 dark:border-gray-700 w-full"
     role="navigation"
     aria-label="Mobile"
   >
