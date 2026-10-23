@@ -297,7 +297,7 @@ const ResearchProjects = () => {
         "You  will work on existing 3D reconstructions of whole brain neuroanatomy of brain donors with Alzheimer's disease. These studies will help us provide insight in the validity of images produced using advanced MRI scanning.",
         'Your work will consist of getting acquainted in detail with the human (subcortical) brain anatomy. You will create digital 3D accounts of various deep brain structures, and compare these data to observations across the adult lifespan.',
       ],
-      tags: ['7T MRI', 'Subcortex', 'Modelling'],
+      tags: ['7T MRI', 'Subcortex', "Alzheimer's Disease"],
       people: ['Anneke Alkemade'],
       //links: [{ label: 'Read more', url: 'https://example.org' }],
       contact: { name: 'Anneke Alkemade', email: 'j.m.alkemade@uva.nl' },
@@ -312,7 +312,7 @@ const ResearchProjects = () => {
         'You will work on existing 3D reconstructions of whole brain neuroanatomy of brain donors without any neurodegenerative disease. These studies will help us provide insight in the validity of images produced using advanced MRI scanning.',
         'Your work will consist of getting acquainted in detail with the human (subcortical) brain anatomy. You will create digital 3D accounts of various deep brain structures, and compare these data to observations across the adult lifespan',
       ],
-      tags: ['Post-mortem MRI', 'Histology'],
+      tags: ['UHF MRI', '3D Reconstruction'],
       people: ['Anneke Alkemade'],
       contact: { name: 'Anneke Alkemade', email: 'j.m.alkemade@uva.nl' },
       references: [
@@ -337,8 +337,8 @@ const ResearchProjects = () => {
           ],
           journal: 'Science advances 8 (17),',
           year: 2022,
-          url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
-          label: 'DOI', // optional, renames the link
+          // url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
+          // label: 'DOI', // optional, renames the link
         },
         {
           title:
@@ -355,8 +355,8 @@ const ResearchProjects = () => {
           ],
           journal: 'Imaging Neuroscience',
           year: 2025,
-          url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
-          label: 'DOI', // optional, renames the link
+          // url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
+          // label: 'DOI', // optional, renames the link
         },
         {
           title:
@@ -371,8 +371,8 @@ const ResearchProjects = () => {
           ],
           journal: 'Imaging Neuroscience',
           year: 2025,
-          url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
-          label: 'DOI', // optional, renames the link
+          // url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
+          // label: 'DOI', // optional, renames the link
         },
       ],
     },
@@ -387,7 +387,7 @@ const ResearchProjects = () => {
         'The goal of this project is to create these 3D reconstructions. This will be done using existing whole-brain 3D reconstructions. These studies will help us provide insight in the validity of images produced using advanced MRI scanning.',
         'Your work will consist of getting acquainted in detail with the human hypothalamic anatomy. You will create digital 3D accounts of structures involved in stress responses, feeding behavior etc. You will use the created reconstructions to provide insight on whether individual hypothalamic structures can be reliably targeted in vivo.',
       ],
-      tags: ['Decision-making', 'Sequential sampling models'],
+      tags: ['Hypothalamus', 'Probablistic Reconstruction', 'MRI'],
       // people: ['Name One', 'Name Two', 'Name Three'],
       // contact: { name: 'Anneke Alkemade', email: 'j.m.alkemade@uva.nl' },
       // links: [{ label: 'Code & Data', url: '/code-and-data' }],
@@ -412,8 +412,8 @@ const ResearchProjects = () => {
           ],
           journal: 'Science advances 8 (17),',
           year: 2022,
-          url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
-          label: 'DOI', // optional, renames the link
+          // url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
+          // label: 'DOI', // optional, renames the link
         },
         {
           title:
@@ -421,8 +421,8 @@ const ResearchProjects = () => {
           authors: ['A Alkemade', 'R Grossmann,', 'P-L Bazin', 'BU Forstmann'],
           journal: 'Imaging Neuroscience',
           year: 2025,
-          url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
-          label: 'DOI', // optional, renames the link
+          // url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
+          // label: 'DOI', // optional, renames the link
         },
         {
           title:
@@ -445,8 +445,8 @@ const ResearchProjects = () => {
           ],
           journal: 'Science advances 8 (17),',
           year: 2022,
-          url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
-          label: 'DOI', // optional, renames the link
+          // url: 'https://doi.org/10.xxxx/xxxxx', // optional, shows "View paper ↗"
+          // label: 'DOI', // optional, renames the link
         },
       ],
     },
@@ -462,7 +462,7 @@ const ResearchProjects = () => {
         'The goal of this project will be to determine the occurrence as well as volume measures of the interthalamic adhesion, and to determine sex and age differences in the volume of the structure.',
         'Your work will consist of the analyses of existing 7Tesla MRI data. You will get aquainted with the structure of the thalamus, and the location and appearance of the interthalamic adhesion.',
       ],
-      tags: ['Atlasing'],
+      tags: ['7T MRI'],
     },
   ]
 
