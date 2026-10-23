@@ -9,7 +9,9 @@ import BrainMeshViewer from './components/BrainMeshViewer'
 import Contact from './pages/Contact'
 import SummerSchool from './pages/SummerSchool'
 import SpringSchool from './pages/SpringSchool'
+import ProjectsPage from './pages/ResearchProjects'
 import Meeting from './pages/Meeting'
+import ResearchProjects from './pages/ResearchProjects'
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
           <Route path="/summer-school" element={<SummerSchool />} />
           <Route path="/spring-school" element={<SpringSchool />} />
           <Route path="/meeting" element={<Meeting />} />
+          <Route path="/projects" element={<ResearchProjects/>} />
         </Routes>
         <Footer />
       </div>
