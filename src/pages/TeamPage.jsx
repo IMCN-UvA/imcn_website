@@ -1,14 +1,14 @@
 import React from 'react'
 import PageHeader from '../components/PageHeader'
 import SectionHeader from '../components/SectionHeader'
-import { asset } from '../utils/assets' 
-
+import LinkButton from '../components/LinkButton'
+import { asset } from '../utils/assets'
 
 const LeadershipCard = ({ member }) => {
   return (
-    <div className="group bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
+    <div className="relative group bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 hover:-translate-y-2 flex flex-col h-full">
       {/* Image Section */}
-      <div className="relative w-full h-56 bg-gradient-to-br from-purple-600 to-blue-600 overflow-hidden">
+      <div className="relative w-full h-56 bg-gradient-to-br from-purple-600 to-blue-600 overflow-hidden flex-shrink-0">
         {member.photo ? (
           <img
             src={member.photo}
@@ -31,16 +31,29 @@ const LeadershipCard = ({ member }) => {
       </div>
 
       {/* Content Section */}
-      <div className="p-8">
+      <div className="p-8 flex-grow flex flex-col">
         <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
           {member.name}
         </h3>
         <p className="text-purple-600 dark:text-purple-400 font-bold mb-6 text-base uppercase tracking-wider">
           {member.designation}
         </p>
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed flex-grow">
           {member.introduction}
         </p>
+
+        {member.links?.length > 0 && (
+          <div className="mt-6 flex flex-col gap-2">
+            {member.links.map((link) => (
+              <LinkButton
+                key={link.url}
+                label={link.label}
+                url={link.url}
+                variant="leadership"
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Decorative Bottom Border */}
@@ -52,9 +65,9 @@ const LeadershipCard = ({ member }) => {
 // Regular Team Member Card
 const TeamMemberCard = ({ member }) => {
   return (
-    <div className="group bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 hover:-translate-y-2">
+    <div className="group bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 hover:-translate-y-2 flex flex-col h-full">
       {/* Avatar Section */}
-      <div className="relative w-full h-56 bg-gradient-to-br from-blue-500 to-teal-500 overflow-hidden">
+      <div className="relative w-full h-56 bg-gradient-to-br from-blue-500 to-teal-500 overflow-hidden flex-shrink-0">
         {member.photo ? (
           <img
             src={member.photo}
@@ -72,20 +85,28 @@ const TeamMemberCard = ({ member }) => {
       </div>
 
       {/* Content Section */}
-      <div className="p-6">
+      <div className="p-6 flex-grow flex flex-col">
         <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
           {member.name}
         </h3>
         <p className="text-blue-600 dark:text-blue-400 font-semibold mb-4 text-sm uppercase tracking-wider">
           {member.designation}
         </p>
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm flex-grow">
           {member.introduction}
         </p>
+
+        {member.links?.length > 0 && (
+          <div className="mt-6 flex flex-col gap-2">
+            {member.links.map((link) => (
+              <LinkButton key={link.url} label={link.label} url={link.url} />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Decorative Bottom Border */}
-      <div className="h-1 bg-gradient-to-r from-blue-500 to-teal-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+      <div className="h-1 bg-gradient-to-r from-blue-500 to-teal-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left flex-shrink-0"></div>
     </div>
   )
 }
@@ -118,6 +139,7 @@ const TeamPage = () => {
     {
       id: 1,
       name: 'Birte Forstmann',
+      designation: 'Full Professor',
       introduction:
         'I am a Full Professor of cognitive neuroscience at the University of Amsterdam (UvA), Professor for Neuroscientific Testing of Psychological Models at Leiden University, and honorary group leader of the integrative model-based cognitive neuroscience (IMCN) group at the Netherlands Institute for Neuroscience, The Netherlands. I received my Ph.D. in 2006 at the Max Planck Institute for Human Cognitive and Brain Sciences, Leipzig, Germany. My main research interest is in model-based cognitive neuroscience.',
       avatar: 'BF',
@@ -126,14 +148,17 @@ const TeamPage = () => {
     {
       id: 2,
       name: 'Anneke Alkemade',
+      designation: 'Associate Professor',
       introduction:
         'I am an Associate Professor and have a background in human neuroanatomy, specialising in the subcortex. My work is focused on providing neuroanatomical information that will help improve our understanding of the role of deep brain structures in behaviour. To this end, I study both living and post mortem brains using ultra-high field qMRI and various microscopy techniques.',
       avatar: 'AA',
       photo: asset('/images/team/anneke-alkemade.jpg'),
+      links: [{ label: 'Research Projects', url: '/projects' }],
     },
     {
       id: 3,
       name: 'Steven Miletić',
+      designation: 'Assistant Professor',
       introduction:
         'I am an Assistant Professor at Leiden University and senior scientist at the University of Amsterdam. My research focuses on the temporal dynamics of the mind and brain: How and why do we change while we engage in decision-making tasks. These dynamics occur on multiple timescales, and give crucial insight in the structure of the mind as well as its neural underpinnings, with a focus on the deep brain',
       avatar: 'SM',
