@@ -9,7 +9,6 @@ import BrainMeshViewer from './components/BrainMeshViewer'
 import Contact from './pages/Contact'
 import SummerSchool from './pages/SummerSchool'
 import SpringSchool from './pages/SpringSchool'
-import ProjectsPage from './pages/ResearchProjects'
 import Meeting from './pages/Meeting'
 import ResearchProjects from './pages/ResearchProjects'
 
