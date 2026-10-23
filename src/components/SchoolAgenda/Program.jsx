@@ -1,279 +1,219 @@
 import React from 'react'
-import { Calendar, Clock } from 'lucide-react'
+import { Brain, Code, Activity, Clock, Utensils } from 'lucide-react'
 
-function Program() {
-  const days = [
-    {
-      day: 'Day 1',
-      title: 'Workshop day',
-      sessions: [
-        { time: '10:00', title: 'Introduction' },
-        { time: '10:15', title: 'Udo Böhm – Basic Bayes' },
-        {
-          time: '11:00',
-          title:
-            'Andrew Heathcote – EMC basics with the Wiener Diffusion Model (WDM)',
-        },
-        { time: '12:00', title: 'Lunch', isBreak: true },
-        { time: '13:00', title: 'Andrew Heathcote – Model Parsimony' },
-        {
-          time: '13:30',
-          title:
-            'Andrew Heathcote – EMC basics with the Diffusion Decision Model (DDM) and Race Models',
-        },
-        { time: '15:00', title: 'Coffee/Tea', isBreak: true },
-        { time: '15:15', title: 'Niek/Andrew – Revision, Q&A and exercises' },
-        {
-          time: '16:00',
-          title: 'Russell Boag – Evidence-accumulation models in the wild',
-        },
-        { time: '17:00', title: 'Drinks at CREA', isBreak: true },
-      ],
-    },
-    {
-      day: 'Day 2',
-      title: 'Workshop Day',
-      sessions: [
-        {
-          time: '10:00',
-          title: 'Niek Stevenson – What are Hierarchical Models',
-        },
-        { time: '10:30', title: 'Niek Stevenson – Hierarchical EAM in EMC2' },
-        { time: '12:00', title: 'Lunch', isBreak: true },
-        {
-          time: '13:00',
-          title: 'Niek Stevenson – Covariates and group-level inference',
-        },
-        { time: '15:00', title: 'Coffee/Tea', isBreak: true },
-        {
-          time: '15:15',
-          title: 'Andrew Heathcote – Revision, Q&A and exercises',
-        },
-        {
-          time: '16:00',
-          title:
-            'Michelle Donzallaz – Using hierarchical models to guard against spurious conclusions',
-        },
-      ],
-    },
-    {
-      day: 'Day 3',
-      title: 'Workshop Day',
-      sessions: [
-        {
-          time: '10:00',
-          title: 'Niek/Andrew – Parameter and model recovery including SBC',
-        },
-        { time: '12:00', title: 'Lunch', isBreak: true },
-        { time: '13:00', title: 'Andrew Heathcote – Building new models' },
-        { time: '14:00', title: 'Niek Stevenson – Joint models' },
-        { time: '15:00', title: 'Coffee/Tea', isBreak: true },
-        { time: '15:15', title: 'Niek/Andrew – Revision, Q&A and exercises' },
-      ],
-    },
-  ]
+const days = [
+  {
+    label: 'Day 1',
+    date: 'Tuesday, April 20',
+    theme: 'Neuroanatomy',
+    icon: Brain,
+    gradient: 'from-purple-600 to-indigo-600',
+    blocks: [
+      {
+        time: '9:30 – 12:00',
+        entries: [
+          { type: 'Welcome', title: 'Welcome and introduction' },
+          {
+            type: 'Lecture',
+            speakers: 'Anneke Alkemade, Birte Forstmann',
+            title:
+              'Lectures on human subcortical and cortical neuroanatomy relevant to high-resolution MRI',
+          },
+        ],
+      },
+      { time: '12:00 – 13:30', isBreak: true, title: 'Lunch' },
+      {
+        time: '13:30 – 16:00',
+        entries: [
+          {
+            type: 'Practical',
+            title:
+              'Practical anatomy sessions: identifying structures on ultra-high-field MRI scans',
+          },
+        ],
+      },
+      {
+        time: '16:00 – 17:00',
+        entries: [{ type: 'Q&A', title: 'Revision and Q&A' }],
+      },
+    ],
+  },
+  {
+    label: 'Day 2',
+    date: 'Wednesday, April 21',
+    theme: 'Open-source toolboxes',
+    icon: Code,
+    gradient: 'from-blue-500 to-purple-600',
+    blocks: [
+      {
+        time: '9:30 – 12:00',
+        entries: [
+          {
+            type: 'Lecture',
+            speakers: 'Pierre-Louis Bazin',
+            title:
+              'Open toolbox development and use, based on the high-resolution neuroimaging toolboxes developed (e.g., Nighres), and their role in open, reproducible pipelines',
+          },
+          {
+            type: 'Keynote',
+            speakers: 'Evgeniya Kirilina',
+            title: 'Quantitative MRI and open science toolboxes',
+          },
+        ],
+      },
+      { time: '12:00 – 13:30', isBreak: true, title: 'Lunch' },
+      {
+        time: '13:30 – 16:00',
+        entries: [
+          {
+            type: 'Practical',
+            title:
+              'Hands-on practicals: installing and applying the toolboxes to example datasets',
+          },
+        ],
+      },
+      {
+        time: '16:00 – 17:00',
+        entries: [{ type: 'Q&A', title: 'Revision and Q&A' }],
+      },
+    ],
+  },
+  {
+    label: 'Day 3',
+    date: 'Thursday, April 22',
+    theme: 'Joint modelling of brain and behaviour',
+    icon: Activity,
+    gradient: 'from-teal-500 to-blue-600',
+    blocks: [
+      {
+        time: '9:30 – 12:00',
+        entries: [
+          {
+            type: 'Lecture',
+            speakers: 'Steven Miletić, Birte Forstmann',
+            title:
+              'Joint modelling approaches linking neuroimaging and behavioural/cognitive data',
+          },
+        ],
+      },
+      { time: '12:00 – 13:30', isBreak: true, title: 'Lunch' },
+      {
+        time: '13:30 – 16:00',
+        entries: [
+          {
+            type: 'Practical',
+            title:
+              'Practical modelling session: fitting joint models to example brain-behaviour datasets',
+          },
+        ],
+      },
+      {
+        time: '16:00 – 17:00',
+        entries: [{ type: 'Closing', title: 'Closing remarks' }],
+      },
+    ],
+  },
+]
 
-  const trackDays = [
-    {
-      day: 'Day 4',
-      tracks: [
-        {
-          name: 'Neuroscience Track',
-          sessions: [
-            {
-              time: '10:00',
-              title: 'Udo Böhm – Plausible values and noisy covariates',
-            },
-            { time: '12:00', title: 'Lunch', isBreak: true },
-            {
-              time: '13:00',
-              title: 'Steven Miletic – Introduction to model-based fMRI',
-            },
-            {
-              time: '14:00',
-              title:
-                'Steven/Niek – Joint modelling of fMRI and behavior in EMC2',
-            },
-            { time: '15:00', title: 'Coffee/Tea', isBreak: true },
-            {
-              time: '15:15',
-              title:
-                'Steven/Niek – Joint modelling of fMRI and behavior in EMC2',
-            },
-            {
-              time: '16:00',
-              title: 'Steven/Niek – Q&A, your data, and exercise',
-            },
-          ],
-        },
-        {
-          name: 'Advanced Cognition Track',
-          sessions: [
-            {
-              time: '10:00',
-              title: 'Udo Böhm – Plausible values and noisy covariates',
-            },
-            { time: '12:00', title: 'Lunch', isBreak: true },
-            {
-              time: '13:00',
-              title: 'Dora Matzke – Stop-signal models in the wild',
-            },
-            {
-              time: '14:00',
-              title: 'Michelle Donzallaz – Stop-signal modelling',
-            },
-            { time: '15:00', title: 'Coffee/Tea', isBreak: true },
-            {
-              time: '15:15',
-              title: 'Michelle Donzallaz – Stop-signal modelling',
-            },
-            {
-              time: '16:00',
-              title: 'Michelle/Andrew – Q&A, your data, and exercise',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      day: 'Day 5',
-      tracks: [
-        {
-          name: 'Neuroscience Track',
-          sessions: [
-            { time: '10:00', title: 'Michael Nunez – Introduction to M/EEG' },
-            {
-              time: '11:00',
-              title:
-                'Michael Nunez – Alternative strategies for joint modelling',
-            },
-            { time: '12:00', title: 'Lunch', isBreak: true },
-            {
-              time: '13:00',
-              title: 'Michael Nunez – Joint modelling exercises in JAGS/Stan',
-            },
-            { time: '14:10', title: 'Coffee/Tea', isBreak: true },
-            {
-              time: '14:25',
-              title: 'Michael Nunez – Joint modelling exercises in BayesFlow',
-            },
-            { time: '15:35', title: 'Coffee/Tea', isBreak: true },
-            { time: '15:50', title: 'Closing discussion', isBreak: true },
-          ],
-        },
-        {
-          name: 'Advanced Cognition Track',
-          sessions: [
-            {
-              time: '10:00',
-              title: 'Russell Boag – Specifying feed-forward evidence theories',
-            },
-            { time: '11:30', title: 'Russell Boag – Learning curves' },
-            { time: '12:00', title: 'Lunch', isBreak: true },
-            {
-              time: '13:00',
-              title:
-                'Steven Miletic – Introduction to Reinforcement Learning and Adaptive EAMS',
-            },
-            {
-              time: '13:30',
-              title:
-                'Steven Miletic – Reinforcement learning and Adaptive models',
-            },
-            { time: '15:35', title: 'Coffee/Tea', isBreak: true },
-            { time: '15:50', title: 'Closing discussion', isBreak: true },
-          ],
-        },
-      ],
-    },
-  ]
+const typeStyles = {
+  Lecture:
+    'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
+  Keynote: 'bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300',
+  Practical: 'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300',
+  'Q&A': 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+  Welcome: 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200',
+  Closing: 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200',
+}
 
-  return (
-    <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Provisional Program
-            </span>
-          </h2>
-        </div>
+const cardClass =
+  'bg-white dark:bg-gray-800 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 transition-colors duration-300'
 
-        {/* Workshop Days (1-3) */}
-        <div className="space-y-6 mb-12">
-          {days.map((day, idx) => (
-            <div
-              key={idx}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-colors duration-300"
-            >
-              <div className="flex items-center mb-4">
-                <Calendar className="h-5 w-5 mr-2 text-blue-600 dark:text-blue-400" />
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  {day.day}: {day.title}
-                </h3>
+const Block = ({ block }) => (
+  <li className="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:gap-6">
+    <div className="sm:w-36 flex-shrink-0 flex items-center sm:items-start gap-2 text-sm font-semibold text-gray-900 dark:text-white mb-2 sm:mb-0 sm:pt-0.5">
+      <Clock className="w-4 h-4 text-gray-400 flex-shrink-0 sm:mt-0.5" />
+      <span className="whitespace-nowrap">{block.time}</span>
+    </div>
+
+    {block.isBreak ? (
+      <p className="flex items-center gap-2 italic text-gray-500 dark:text-gray-400">
+        <Utensils className="w-4 h-4 flex-shrink-0" />
+        {block.title}
+      </p>
+    ) : (
+      <div className="flex-1 space-y-4">
+        {block.entries.map((entry) => (
+          <div key={entry.title}>
+            {(entry.type || entry.speakers) && (
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                {entry.type && (
+                  <span
+                    className={`px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide ${
+                      typeStyles[entry.type] || typeStyles.Welcome
+                    }`}
+                  >
+                    {entry.type}
+                  </span>
+                )}
+                {entry.speakers && (
+                  <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                    {entry.speakers}
+                  </span>
+                )}
               </div>
-              <div className="space-y-2">
-                {day.sessions.map((session, sIdx) => (
-                  <div key={sIdx} className="flex items-start">
-                    <Clock className="h-4 w-4 mr-3 mt-1 text-gray-400 flex-shrink-0" />
-                    <span className="font-medium text-gray-900 dark:text-white w-16 flex-shrink-0">
-                      {session.time}
-                    </span>
-                    <span
-                      className={`${
-                        session.isBreak
-                          ? 'italic text-gray-500 dark:text-gray-400'
-                          : 'text-gray-600 dark:text-gray-300'
-                      }`}
-                    >
-                      {session.title}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Track Days (4-5) */}
-        {trackDays.map((trackDay, idx) => (
-          <div key={idx} className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-              {trackDay.day}
-            </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {trackDay.tracks.map((track, tIdx) => (
-                <div
-                  key={tIdx}
-                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 transition-colors duration-300"
-                >
-                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
-                    {track.name}
-                  </h4>
-                  <div className="space-y-2">
-                    {track.sessions.map((session, sIdx) => (
-                      <div key={sIdx} className="flex items-start">
-                        <Clock className="h-4 w-4 mr-3 mt-1 text-gray-400 flex-shrink-0" />
-                        <span className="font-medium text-gray-900 dark:text-white w-16 flex-shrink-0">
-                          {session.time}
-                        </span>
-                        <span
-                          className={`${
-                            session.isBreak
-                              ? 'italic text-gray-500 dark:text-gray-400'
-                              : 'text-gray-600 dark:text-gray-300'
-                          }`}
-                        >
-                          {session.title}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+            )}
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              {entry.title}
+            </p>
           </div>
         ))}
+      </div>
+    )}
+  </li>
+)
+
+const DayCard = ({ day }) => {
+  const Icon = day.icon
+
+  return (
+    <article className={`overflow-hidden ${cardClass}`}>
+      <header
+        className={`bg-gradient-to-r ${day.gradient} px-6 sm:px-8 py-5 text-white flex items-center gap-4`}
+      >
+        <div className="w-11 h-11 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+          <Icon className="w-6 h-6 text-white" />
+        </div>
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wider text-white/80">
+            {day.label}
+            {day.date && ` · ${day.date}`}
+          </p>
+          <h3 className="text-xl sm:text-2xl font-bold">{day.theme}</h3>
+        </div>
+      </header>
+
+      <ol className="p-6 sm:p-8 divide-y divide-gray-200 dark:divide-gray-700">
+        {day.blocks.map((block) => (
+          <Block key={block.time} block={block} />
+        ))}
+      </ol>
+    </article>
+  )
+}
+
+function Program() {
+  return (
+    <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
+      <div className="max-w-5xl mx-auto px-4 pt-8 pb-12 lg:pb-16">
+        <h2 className="text-3xl sm:text-4xl font-bold leading-tight text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-8 lg:mb-10">
+          Provisional Program
+        </h2>
+
+        <div className="space-y-8">
+          {days.map((day) => (
+            <DayCard key={day.label} day={day} />
+          ))}
+        </div>
       </div>
     </section>
   )
