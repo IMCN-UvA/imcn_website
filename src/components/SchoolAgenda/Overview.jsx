@@ -1,4 +1,5 @@
 import React from 'react'
+import Sponsors from './Sponsors'
 import {
   Brain,
   Code,
@@ -100,13 +101,13 @@ function Overview() {
             </h2>
             <div className="space-y-4">
               <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed">
-                The 1st Model-Based Cognition and Neuroscience Spring School,
+                The 1st Model-Based Neuroscience and Cognition Spring School,
                 hosted by the University of Amsterdam, will be held in spring
                 2027!
               </p>
               <p className="text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 The University of Amsterdam will host the 1st annual Model-Based
-                Cognition and Neuroscience Spring School: From Neuroanatomy to
+                Neuroscience and Cognition Spring School: From Neuroanatomy to
                 Joint Modelling of Brain and Behaviour.
               </p>
             </div>
@@ -232,6 +233,7 @@ function Overview() {
             ))}
           </ul>
         </div>
+        <Sponsors />
       </div>
     </section>
   )

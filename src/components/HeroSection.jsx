@@ -39,36 +39,36 @@ const HeroSection = () => {
 
   return (
     <>
-    <div className="w-full bg-blue-600 dark:bg-blue-700 text-white py-2 px-4 shadow-sm">
+      <div className="w-full bg-blue-600 dark:bg-blue-700 text-white py-2 px-4 shadow-sm">
         <div className="flex items-center justify-center space-x-2">
           <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
           <p className="text-sm font-medium">
-            Registration is now open for Summer School 2026!
+            Registration is now open for Spring School 2027!
           </p>
           <a
-            href= "https://modelbasedneurosci.com/application/"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScEYRuZIwEWexuO6iBQ4TuN6vqhdDRqlZdY7fhIAFla-GKohQ/viewform?usp=header"
             className="text-blue-200 hover:text-white underline text-sm font-semibold transition-colors duration-200"
           >
             Register →
           </a>
         </div>
-    </div>
-    <section
-      id="home"
-      ref={heroSectionRef}
-      className={`bg-gradient-to-br ${backgroundColors[selectedCircle]} transition-colors duration-500`}
-    >
-      <div className="max-w-7xl mx-auto px-4 py-2">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <HeroSectionVenn
-            isDiagramExpanded={isDiagramExpanded}
-            onCircleClick={handleCircleClick}
-          />
-          <HeroContent selectedCircle={selectedCircle} />
-        </div>
       </div>
-    </section>
-    </> 
+      <section
+        id="home"
+        ref={heroSectionRef}
+        className={`bg-gradient-to-br ${backgroundColors[selectedCircle]} transition-colors duration-500`}
+      >
+        <div className="max-w-7xl mx-auto px-4 py-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <HeroSectionVenn
+              isDiagramExpanded={isDiagramExpanded}
+              onCircleClick={handleCircleClick}
+            />
+            <HeroContent selectedCircle={selectedCircle} />
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
 
