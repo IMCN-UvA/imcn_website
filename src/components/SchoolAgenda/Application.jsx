@@ -11,8 +11,9 @@ import {
 } from 'lucide-react'
 
 // Fill these in once available; empty values show a "coming soon" state instead of a broken link
-const applicationFormUrl = ''
-const contactEmail = ''
+const applicationFormUrl =
+  'https://docs.google.com/forms/d/e/1FAIpQLScEYRuZIwEWexuO6iBQ4TuN6vqhdDRqlZdY7fhIAFla-GKohQ/viewform?usp=header'
+const contactEmail = 'imcn.springschool@gmail.com'
 
 const details = [
   { icon: Euro, label: 'Registration fee', value: '€200' },
